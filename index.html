@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="map.css" />
+    <link rel="stylesheet" href="card.css" />
+    <title>W_b_t_d</title>
+</head>
+<div id="anxietyFilter" class="anxiety-filter">
+    <img class="eyeFilter"src="img/eyes.gif" alt="redeyes">
+</div>
+
+
+<body>
+
+   
+    
+   <p id="home_Nrr">"오늘도 좋은 날이에요. 아무일도 없을거니까요"</p>
+   <div id="bad_end">
+
+        <h1>게임 종료</h1>
+        <h3>"좋잖아? 나가서 뭐해"</h3>
+
+        <p>다시하기</p>
+
+    </div>
+     <div id="EndCredits">
+
+        <img id="title_Credits"src="title.png" alt ="title">
+        <img class="eyeFilter"src="img/eyes.gif" alt="redeyes">
+        <p>
+            <strong>제작</strong> 정연수<br>
+        <strong>thanks to</strong> 신원교수님, 최지예<br>
+        플레이 해 주셔서 감사합니다</p>
+  
+        
+
+    </div>
+
+    <div id="ding">
+            <video class="die" src="img/die.mp4" alt="too many eyes" autoplay muted loop playsinline></video>
+    </div>
+
+    <div id="day">
+        <h1 >Day-1</h1>
+    </div>
+    
+    <div class="main-warp">
+        
+
+        <div id="questions">
+            <p class="answer" data-answer="out">밖으로 나간다</p>
+            <p class="answer" data-answer="stay">포기한다</p>
+        </div>
+
+        <img id="title"src="title.png" alt ="title">
+        <div class="back">
+            <div class="door"></div>
+        </div>
+        <div class="eyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+            <img class="eye"src="img/eyes.gif" alt="redeyes">
+           
+        </div>
+
+         
+    </div>
+    <p class="ward">"편의점에 가보자"</p>
+    <p class="open_door_text">[위 화살표] 키를 눌러 문으로 들어가기</p>
+    <div class="player" data-direction="" data-status="bad" data-walk="false">
+        
+    </div>
+    <div class="Map">
+       
+            <img class="monster1" src="img/monster/1.png">
+            <img class="monster2" src="img/monster/1.png">
+           
+    
+
+        <div class="Maps">
+            
+            <img class="map_front" src="img/map/Map_1_1.png">
+
+        </div>
+    </div>
+
+    <div class="card_wrap">
+            <p id="questions_card"></p>
+        <div id="chapter_questions">
+            <p class="card_answer" data-answer="A"></p>
+            <p class="card_answer" data-answer="B"></p>
+        </div>
+        <div id="deck">
+            <div class="card">
+                 <div class="card_inner" z-index="21">
+                    <div class="card_front"></div>
+                    <div class="card_back"></div>
+                 </div>
+             </div>
+
+            <div class="card" z-index="20">
+                <div class="card_inner">
+                        <div class="card_front"></div>
+                        <div class="card_back"></div>
+                </div>
+            </div>
+
+            <div class="card" z-index="11">
+                <div class="card_inner">
+                        <div class="card_front"></div>
+                        <div class="card_back"></div>
+                </div>
+        </div>
+        <div id="deck_2">
+            <div class="card">
+                 <div class="card_inner" z-index="21">
+                    <div class="card_front"></div>
+                    <div class="card_back"></div>
+                 </div>
+             </div>
+
+            <div class="card" z-index="20">
+                <div class="card_inner">
+                        <div class="card_front"></div>
+                        <div class="card_back"></div>
+                </div>
+            </div>
+
+            <div class="card" z-index="11">
+                <div class="card_inner">
+                        <div class="card_front"></div>
+                        <div class="card_back"></div>
+                </div>
+            </div>
+            <div class="card" z-index="11">
+                <div class="card_inner">
+                        <div class="card_front"></div>
+                        <div class="card_back"></div>
+                </div>
+            </div>
+        </div>
+           
+        <div id="deck_3">
+            <div class="card">
+                 <div class="card_inner" z-index="21">
+                    <div class="card_front"></div>
+                    <div class="card_back"></div>
+                 </div>
+             </div>
+
+            <div class="card" z-index="20">
+                <div class="card_inner">
+                        <div class="card_front"></div>
+                        <div class="card_back"></div>
+                </div>
+            </div>
+
+            <div class="card" z-index="11">
+                <div class="card_inner">
+                        <div class="card_front"></div>
+                        <div class="card_back"></div>
+                </div>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+    <script src="map.js"></script>
+    <script src="card.js"></script>
+</body>
+</html>

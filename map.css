@@ -1,0 +1,228 @@
+.Map {
+  position: absolute;
+  display: none;
+  bottom:-50px;
+  left:0px;
+  width: 4000px;
+  height: 100vw;
+  perspective: 800px;
+  background-color: rgb(0, 0, 0);
+  opacity:0%;
+  
+  z-index:4;
+  animation: dissolve_on 1s 3s ease forwards ;
+  overflow: hidden;
+  
+}
+
+
+
+
+.map_front, .map_back, .map_sky {
+  position: fixed;
+  bottom:0px;
+
+  overflow-x: visible;
+  overflow: hidden;
+}
+
+
+.open_door_text{
+  /* display: none; */
+  position: fixed;
+  bottom: 200px;
+  left:670px;
+  width:300px;
+  height:50px;
+  color:white;
+  text-align: center;
+  
+  z-index:5;
+}
+
+.ward{
+  /* display: none; */
+  position: fixed;
+  bottom: 220px;
+  left:670px;
+  width:300px;
+  height:50px;
+  color:white;
+  text-align: center;
+  opacity:0;
+  z-index:5;
+}
+
+
+.ward.on{
+animation: dissolve_in_out 5s ease forwards ;
+}
+
+
+@keyframes dissolve_in_out {
+    0% {opacity:0%}
+    10%{opacity:100%}
+    90%{opacity:100%}
+    100% {opacity:0%}
+}
+
+
+.player {
+  display: none;
+  position: fixed;
+  bottom:30px;
+  left: 670px;
+  width: 300px;
+  height: 300px;
+  scale:40%;
+  background: url('img/player/bad-stand.png') no-repeat;
+  background-size: cover;
+  opacity:100%;
+  z-index:5;
+
+}
+
+/* 걷는 상태일 때 */
+.player[data-walk="true"] {
+  background: url('img/player/walking.png') no-repeat;
+  animation: walking 1s steps(4) infinite;
+}
+
+
+/* 애니메이션: 가로로 프레임 이동 */
+@keyframes walking {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -1200px;
+  }
+}
+
+.monster1, .monster2 {
+  position: fixed;
+  bottom: 150px;
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  z-index: 10;
+  animation: monster 2s infinite ease;
+
+}
+
+.monster1.non, .monster2.non {
+  position: fixed;
+  bottom: 150px;
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  z-index: 10;
+  animation: monster_non 2s infinite ease;
+
+}
+
+.monster1{
+  left :100px;}
+
+.monster2{
+  left :2100px;
+}
+
+@keyframes monster_non {
+  0% {
+    bottom: 100px;
+  }
+  50% {
+    bottom: 100px;
+  }
+  100% {
+    bottom: 100px;
+  }
+}
+
+
+
+@keyframes monster {
+  0% {
+    bottom: 150px;
+  }
+  50% {
+    bottom: 160px;
+  }
+  100% {
+    bottom: 150px;
+  }
+}
+
+
+/* ------------------------------------------------------------ */
+
+.player[data-walk="true"][data-status="bad"][data-direction="right"] {
+  background-position-y: 0px;
+  transform: rotate(5deg); 
+}
+
+.player[data-walk="true"][data-status="bad"][data-direction="left"] {
+  background-position-y: -1200px;
+  transform: rotate(-5deg);
+}
+
+/* 걷지 않을 때 → 선 채로 */
+.player[data-walk="false"][data-status="bad"] {
+  background: url('img/player/bad-stand.png') no-repeat;
+}
+
+/*---------------------------------------*/
+/* 상태가 보통 일 때 */
+
+
+.player[data-walk="true"][data-status="normal"][data-direction="right"] {
+  background-position-y: -300px;
+  transform: rotate(5deg); 
+}
+
+.player[data-walk="true"][data-status="normal"][data-direction="left"] {
+  background-position-y: -1500px;
+  transform: rotate(-5deg);
+}
+
+/* 걷지 않을 때 → 선 채로 */
+.player[data-walk="false"][data-status="normal"] {
+  background: url('img/player/normal-stand.png') no-repeat;
+}
+
+/*---------------------------------------*/
+/* 상태가 좋음 일 때 */
+
+.player[data-walk="true"][data-status="good"][data-direction="right"] {
+  background-position-y: -600px;
+  transform: rotate(5deg); 
+}
+
+.player[data-walk="true"][data-status="good"][data-direction="left"] {
+  background-position-y: -1800px;
+  transform: rotate(-5deg);
+}
+
+/* 걷지 않을 때 → 선 채로 */
+.player[data-walk="false"][data-status="good"] {
+  background: url('img/player/good-stand.png') no-repeat;
+}
+
+/*---------------------------------------*/
+/* 상태가 매우 좋음 일 때 */
+
+.player[data-walk="true"][data-status="sogood"][data-direction="right"] {
+  background-position-y: -900px;
+  transform: rotate(5deg); 
+}
+
+.player[data-walk="true"][data-status="sogood"][data-direction="left"] {
+  background-position-y: -2100px;
+  transform: rotate(-5deg);
+}
+
+/* 걷지 않을 때 → 선 채로 */
+.player[data-walk="false"][data-status="sogood"] {
+  background: url('img/player/good-stand.png') no-repeat;
+}

@@ -1,0 +1,193 @@
+.card_wrap{
+    display:none;
+    position: absolute;
+    
+    height:100%;
+    width:100%;
+    background-color: rgb(49, 49, 49);
+    z-index:7;
+    opacity:0%;
+    
+    overflow:visible;
+    transition: all 1s ease-in-out;
+    animation: dissolve_on 1s 0s ease forwards ;
+}
+
+.card_wrap.off{
+    animation: dissolve 1s 0s ease forwards ;
+}
+
+
+
+
+
+
+
+#questions_card {
+
+    position:absolute;
+    top:calc(50% - 400px);
+    width:100%;
+    height:70px;
+    text-align: center;
+    font-size:30px;
+    color: red;
+}
+
+#chapter_questions {
+    display: flex;
+    position: relative;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:8;
+    gap:100px;
+    
+}
+
+
+
+
+.card_answer{
+    
+    cursor: pointer;
+    width: 50%;
+    color: aliceblue;
+    text-align: center;
+    padding-top:400px;
+    font-size: 20px;
+    transition: all 1s ease ;
+    opacity:3%;
+    
+}
+
+.card_answer.off{
+    opacity:0%;
+}
+
+
+
+.card_answer:active {
+    opacity:100%;
+    color: #a32014;
+    transition: all 0.2s ease ;
+}
+
+.card_answer:hover {
+    opacity:100%;
+    transition: all 1s ease ;
+}
+
+
+
+ .card{
+        display: none;
+        flex-direction: column;
+        justify-content: center; 
+        position: absolute;
+        align-items: center;
+        top:calc(50% - 350px);
+        left:calc(50% - 250px);
+        width:500px;
+        height:700px;
+        perspective:500px;
+        opacity:0;
+        overflow: visible;
+        transition: all 1s ease-in-out;
+        
+        
+    }
+
+
+ .card.left{
+    left:calc(50% - 350px);
+    rotate:-15deg;
+    transition: all 1s ease-in-out;
+ }
+ .card.right{
+    left:calc(50% - 150px);
+    rotate:15deg;
+    transition: all 1s ease-in-out;
+ }
+
+ .card.off{
+    animation: card_off 0.4s 0.5s ease forwards ;
+        
+ }
+ .card.on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+ @keyframes card_off{
+    from{opacity:1;}
+    to{opacity:0;}
+
+ }
+ @keyframes card_on{
+    from{opacity:0;}
+    to{opacity:1;}
+
+ }
+
+
+
+
+
+    
+
+
+    .card_inner{
+        position: relative;
+        width:300px;
+        height:500px;
+        
+        transition: transform 0.5s;
+        
+        transform-style: preserve-3d;
+
+        animation: cardFlip 0.4s 1s cubic-bezier(0.03, 0.22, 0.42, 0.13) forwards ;
+        
+        z-index:10;
+
+ 
+    }
+
+
+     @keyframes cardFlip {
+        0% {transform-origin: 10% ; transform: rotateY(0deg);}
+       
+        
+        100% {transform-origin: 50% ;left:0px; transform: rotateY(180deg);}
+
+    } 
+
+
+     .card:hover .card-inner {
+        transform: rotateY(180deg);
+    } 
+
+    .card_front,
+    .card_back
+    {
+        position:absolute;
+        width:100%;
+        height: 100%;
+        backface-visibility: hidden;
+        top:0;
+        left:0;
+    }
+
+    .card_front {
+        background-image:url(img/card/back.png);
+        transform: rotateY(0deg);
+        
+    }
+
+    .card_back {
+        background-image:url(img/card/1-1.png);
+        transform: rotateY(180deg);
+    }
+
+    
