@@ -122,12 +122,12 @@ document.addEventListener('keydown', (e) => {
     currentDirection = 'left'
     move = true
 
-   position_x += 30
+   position_x += 5
     
  } else if (e.key === 'ArrowRight' ){
     currentDirection = 'right'
     move = true
-    position_x -= 30
+    position_x -= 5
  }
 
  if(position_x > 750){
