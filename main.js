@@ -1,6 +1,4 @@
-
-
-
+//이 창에서 모두 접근할 수 있도록 window.으로 선언
 window.warp = document.querySelector(".main-warp")
 window.Nrr = document.getElementById("home_Nrr")
 
@@ -20,139 +18,137 @@ let retry = document.getElementById('bad_end').querySelector('p')
 
 retry.addEventListener('click', () => {
     bad_end.style.opacity = "0"
-     Nrr.innerText = `"왜 문앞에 다시 선 거야? 또 포기 할 거면서"`
-     Nrr.style.opacity = "1"
-     
-    setTimeout(()=>{
-     
-     bad_end.style.display = "none"
-     },500)
+    Nrr.innerText = `"왜 문앞에 다시 선 거야? 또 포기 할 거면서"`
+    Nrr.style.opacity = "1"
+
+    setTimeout(() => {
+
+        bad_end.style.display = "none"
+    }, 500)
 })
 
 
 
 warp.addEventListener('mousemove', (e) => {
- let warpRect = warp.getBoundingClientRect();
+    let warpRect = warp.getBoundingClientRect();
 
- //화면 가운데 기준점
- let center_x = warpRect.width /2
+    //화면 가운데 기준점
+    let center_x = warpRect.width / 2
 
- let mouse_x = e.clientX;
+    let mouse_x = e.clientX;
 
- let offset = mouse_x - center_x;
+    let offset = mouse_x - center_x;
 
- let moveAmount = offset * 0.2;
+    let moveAmount = offset * 0.2;
 
- if(moveAmount < 0){
- door.style.transform = `rotateY(${moveAmount}deg)`
- eyes.style.opacity = `${(moveAmount /2) * -1}%`
- }
+    if (moveAmount < 0) {
+        door.style.transform = `rotateY(${moveAmount}deg)`
+        eyes.style.opacity = `${(moveAmount /2) * -1}%`
+    }
 
- 
+
 
 
 })
 
-function off_this(a){
+function off_this(a) {
     a.classList.remove("on")
-   a.classList.add('dissolve')
-   setTimeout(()=>{
-    a.style.display = "none"
-   }, 1000)
- 
+    a.classList.add('dissolve')
+    setTimeout(() => {
+        a.style.display = "none"
+    }, 1000)
+
 }
 
 
 answers.forEach(item => {
-    
-    
 
-    item.addEventListener('click', ()=>{
-        
-        
+
+
+    item.addEventListener('click', () => {
+
+
 
         item.classList.add('pick');
-        setTimeout(()=>{
+        setTimeout(() => {
             item.classList.remove('pick')
-            
-        },2000)
-        
+
+        }, 2000)
+
         let answer = item.dataset.answer
 
 
-        if (answer === 'out'){
-            
+        if (answer === 'out') {
+
             go_home = false
             off_this(warp)
             map.style.display = "block"
             player_on.style.display = "block"
             day.style.display = "block"
-             setTimeout(()=>{
+            setTimeout(() => {
                 day.style.display = "none"
-            },3000)
-           
-            
-            setTimeout(()=>{
+            }, 3000)
+
+
+            setTimeout(() => {
                 Nrr.style.opacity = "0"
                 title.style.opacity = "0"
-                
-          
-            },1000)
 
-           
-            
 
-            if(chapter_now === 0){
+            }, 1000)
+
+
+
+
+            if (chapter_now === 0) {
                 ward.innerText = `"편의점에 가자"`
                 ward.classList.add("on")
-                setTimeout(()=>{
-                ward.classList.remove("on")
-                
-               },5000)
-            }else if(chapter_now === 1){
+                setTimeout(() => {
+                    ward.classList.remove("on")
+
+                }, 5000)
+            } else if (chapter_now === 1) {
                 ward.innerText = `"미용실에 가볼까"`
                 ward.classList.add("on")
-                setTimeout(()=>{
-                ward.classList.remove("on")
-                
-               },5000)
-                
-            }else if(chapter_now === 2){
+                setTimeout(() => {
+                    ward.classList.remove("on")
+
+                }, 5000)
+
+            } else if (chapter_now === 2) {
                 ward.innerText = `"도서관에 가보자"`
                 ward.classList.add("on")
-                setTimeout(()=>{
-                ward.classList.remove("on")
-                
-               },5000)
-            }else if(chapter_now === 3){
+                setTimeout(() => {
+                    ward.classList.remove("on")
+
+                }, 5000)
+            } else if (chapter_now === 3) {
                 ward.innerText = `"산책이나 해볼까"`
                 ward.classList.add("on")
-                setTimeout(()=>{
-                ward.classList.remove("on")
-                
-               },5000)
+                setTimeout(() => {
+                    ward.classList.remove("on")
+
+                }, 5000)
             }
-            
-            
-        } else if (answer === 'stay'){
+
+
+        } else if (answer === 'stay') {
             Nrr.innerText = `"그럴 줄 알았어"`
             bad_end.style.display = "block"
-            
-            setTimeout(()=>{
+
+            setTimeout(() => {
                 bad_end.style.opacity = "1"
-            },500)
+            }, 500)
         }
 
 
 
     })
 
-    
-    
 
 
 
 
-}
-)
 
+
+})
