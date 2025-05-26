@@ -245,11 +245,14 @@ card_answer.forEach(item => {
       nextChapter()
       go_home_ward = false
       chapter_1 = true
+      
 
       console.log(chapter_now)
       console.log(answer_count)
       console.log(chapter_1)
+      console.log(go_home)
       day_inner.innerText = `Day 2`
+
     } else if (answer_count == 6) {
 
       chapter_2 = true
@@ -260,6 +263,7 @@ card_answer.forEach(item => {
     } else if (answer_count == 8) {
       position_x = 0
       thisMap.style.left = position_x + "px"
+      anxious = 0
 
       day_inner.innerText = `Your Day`
     } else if (answer_count == 9) {

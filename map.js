@@ -155,16 +155,22 @@ document.addEventListener('keydown', (e) => {
          door_can_open = true;
 
       } else if (relativeX < -1869 && relativeX > -1969 && !go_home) {
-         if (chapter_now == 0) {
+         if (chapter_now === 0 && !go_home) {
             door_can_open = true;
+         }else{
+            door_can_open = false;
          }
       } else if (relativeX < -2580 && relativeX > -2680 && !go_home) {
-         if (chapter_now == 1) {
+         if (chapter_now == 1 && !go_home) {
             door_can_open = true;
+         }else{
+            door_can_open = false;
          }
       } else if (relativeX < -3483 && relativeX > -3583 && !go_home) {
-         if (chapter_now == 2) {
+         if (chapter_now == 2 && !go_home) {
             door_can_open = true;
+         }else{
+            door_can_open = false;
          }
       } else {
          door_can_open = false;
@@ -289,10 +295,12 @@ document.addEventListener('keydown', (e) => {
 
       if (e.key === 'ArrowUp' || e.key === 'W' || e.key === 'w' && door_can_open) {
 
-         if (!home_door) {
+         if (!home_door && door_can_open) {
             cardScene.style.display = "block"
             cardScene.style.opacity = "1"
-         } else if (home_door) {
+
+         } else if (home_door && door_can_open) {
+            
             warp.classList.add("on")
             warp.classList.remove("dissolve")
             warp.style.display = "block"
