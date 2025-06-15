@@ -12,7 +12,8 @@ let bad_end = document.getElementById('bad_end')
 let retry = document.getElementById('bad_end').querySelector('p')
 
 
-
+const homeDoorSound = new Audio('sound/open_door_home.mp3');
+ 
 
 
 
@@ -79,6 +80,7 @@ answers.forEach(item => {
 
 
         if (answer === 'out') {
+            homeDoorSound.play();
 
             go_home = false
             off_this(warp)

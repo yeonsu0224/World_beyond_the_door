@@ -16,7 +16,12 @@
 }
 
 
-
+.manipulate{
+  position: absolute;
+  bottom:5%;
+  left: 5%;
+  color: #ffffff;
+}
 
 .map_front, .map_back, .map_sky {
   position: fixed;

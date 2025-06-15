@@ -29,7 +29,17 @@ window.door_can_open = false
 let door_text = document.querySelector(".open_door_text")
 
 
+//오디오
+const walkSound = new Audio('sound/Walk on Solid Metal Series.mp3');
 
+const storeDoorSound = new Audio('sound/open_door_store.mp3');
+window.heartbeat = new Audio('sound/심장박동1.wav');
+
+
+walkSound.loop = true;
+walkSound.volume = 0.2;
+
+let isWalking = false;
 
 let map_arr = ["img/map/Map_1_1.png",
    "img/map/Map_1_2.png",
@@ -120,13 +130,18 @@ document.addEventListener('keydown', (e) => {
    if (e.key === 'ArrowLeft' || e.key === 'A' || e.key === 'a') {
       currentDirection = 'left'
       move = true
+      walkSound.play();  // 한 번만 재생 시작
+    isWalking = true;
 
       position_x += 5
+      
 
    } else if (e.key === 'ArrowRight' || e.key === 'D' || e.key === 'd') {
       currentDirection = 'right'
       move = true
       position_x -= 5
+      walkSound.play();  // 한 번만 재생 시작
+    isWalking = true;
    }
 
    if (position_x > 750) {
@@ -153,6 +168,7 @@ document.addEventListener('keydown', (e) => {
 
          home_door = true;
          door_can_open = true;
+        
 
       } else if (relativeX < -1869 && relativeX > -1969 && !go_home) {
          if (chapter_now === 0 && !go_home) {
@@ -244,6 +260,8 @@ document.addEventListener('keydown', (e) => {
                      anxious++;
                      setAnxietyLevel(anxious);
                      console.log(anxious);
+
+                     heartbeat.play()
                   } else {
                      clearInterval(anxious_Interval);
                      anxious_Interval = null;
@@ -261,8 +279,10 @@ document.addEventListener('keydown', (e) => {
             clearInterval(anxious_Interval);
             setAnxietyLevel(anxious);
             anxious_Interval = null;
+            
             anxious = 0;
             isAnxiousIncreasing = false;
+            
 
          }
          console.log("chapter_now", chapter_now);
@@ -282,6 +302,8 @@ document.addEventListener('keydown', (e) => {
          clearInterval(anxious_Interval);
          setAnxietyLevel(anxious);
          anxious_Interval = null;
+         heartbeat.pause();
+            heartbeat.currentTime = 0;
 
          if (cardScene.style.display !== "block") {
             anxious = 0;
@@ -296,8 +318,13 @@ document.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowUp' || e.key === 'W' || e.key === 'w' && door_can_open) {
 
          if (!home_door && door_can_open) {
-            cardScene.style.display = "block"
+            storeDoorSound.play(); 
+            setTimeout(()=> {
+               cardScene.style.display = "block"
             cardScene.style.opacity = "1"
+            }, 2000)
+            
+            
 
          } else if (home_door && door_can_open) {
             
@@ -338,6 +365,9 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('keyup', () => {
    move = false
    player.dataset.walk = move
+    walkSound.pause();
+    walkSound.currentTime = 0;  // 다시 시작되게 리셋
+    isWalking = false;
 
 })
 

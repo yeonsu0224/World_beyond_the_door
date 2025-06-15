@@ -100,8 +100,10 @@ let card_answer = document.querySelectorAll(".card_answer");
 let questionText = document.getElementById("questions_card");
 let cardFront = document.querySelectorAll(".card_back");
 const ding = document.getElementById("ding");
-
+const endingMusic = new Audio("sound/Before the Loss - Nathan Moore.mp3")
+endingMusic.volume = 0.2;
 let answer_count = 0;
+
 
 function setAnxietyLevel(level) {
   const filter = document.getElementById('anxietyFilter');
@@ -195,6 +197,7 @@ card_answer.forEach(item => {
     if (answer === cardData.badAnswer) {
       anxious += 1
       setAnxietyLevel(anxious);
+      heartbeat.play();
     }
 
     if (anxious === 3) {
@@ -229,6 +232,8 @@ card_answer.forEach(item => {
 
 
       questionText.style.opacity = 0
+      heartbeat.pause();  
+      heartbeat.currentTime = 0;
 
 
       card_answer.forEach(i => {
@@ -291,7 +296,9 @@ card_answer.forEach(item => {
         EndCredits.style.opacity = "1"
       }, 45000)
 
+      endingMusic.play();
       ending = true
+      
       door_can_open = false
       door_text.innerText = ""
     }
