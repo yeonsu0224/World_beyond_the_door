@@ -35,9 +35,9 @@ const walkSound = new Audio('sound/Walk on Solid Metal Series.mp3');
 const storeDoorSound = new Audio('sound/open_door_store.mp3');
 window.heartbeat = new Audio('sound/심장박동1.wav');
 
-
+heartbeat.volume = 1.2;
 walkSound.loop = true;
-walkSound.volume = 0.2;
+walkSound.volume = 0.8;
 
 let isWalking = false;
 
