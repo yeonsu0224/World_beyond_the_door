@@ -1,9 +1,20 @@
+@font-face {
+    font-family: 'Uiyeun';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2105@1.1/Uiyeun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Uiyeun';
     
 }
+
+
 
 .anxiety-filter {
   display: flex;
@@ -59,6 +70,7 @@
     width:100%;
      text-align: center;
      color: aliceblue;
+     font-size:50px;
 
 }
 
@@ -126,14 +138,14 @@ html, body {
 #bad_end h1 {
     position: fixed;
     top:calc(50% - 80px);
-    font-size:50px;
+    font-size:60px;
     width:100%;
     text-align: center;
 }
 #bad_end h3 {
     position: fixed;
     top:calc(50% - 10px);
-    font-size:30px;
+    font-size:40px;
     width:100%;
     text-align: center;
 }
@@ -142,7 +154,7 @@ html, body {
     cursor: pointer;
     position: fixed;
     bottom:20px;
-    font-size:30px;
+    font-size:40px;
     width:100%;
     text-align: center;
 }
@@ -194,7 +206,7 @@ html, body {
     height:100%;
     color: aliceblue;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     transition: all 1s ease ;
     opacity:3%;
 
@@ -218,7 +230,7 @@ html, body {
     height:50px;
     color: aliceblue;
     text-align: center;
-    font-size: 20px;
+    font-size: 30px;
     transition: all 1s ease ;
     opacity:100%;
     z-index:10;

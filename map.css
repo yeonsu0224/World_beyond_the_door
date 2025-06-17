@@ -54,6 +54,7 @@
   height:50px;
   color:white;
   text-align: center;
+  font-size:20px;
   opacity:0;
   z-index:5;
 }
